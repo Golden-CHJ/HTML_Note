@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>云笔记-登录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/setup_.css" rel="stylesheet" type="text/css"/>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+
+    <script type="text/javascript" src="./JS/move.js"></script>
+    <script language="JavaScript">
+        window.onload=function() {
+
+            var oMove = document.getElementById('tool');
+
+            var aList = oMove.getElementsByTagName('tr');
+
+            for (var i = 0; i < aList.length; i++) {
+                aList[i].onmouseover  = function () {
+
+                    var _this = this.getElementsByTagName('td')[0];
+
+                    startMove(_this, {opacity: 20} );
+
+                }
+                aList[i].onmouseout= function () {
+
+                    var _this = this.getElementsByTagName('td')[0];
+
+                    startMove(_this, {opacity: 100} );
+
+                }
+            }
+        }
+
+         function MoveTool(){
+             var oMove=document.getElementById('tool');
+             var ilist=oMove.getElementsByTagName('td');
+             for(var i=0;i<ilist.length-1;i++){
+             ilist[i].style.display='none';}
+         }
+
+        function CreateNote() {
+
+            var  age = prompt("请输入笔记名称:","");
+            if (age != null){
+            }else{
+                alert("你按了[取消]按钮");
+            }
+//根据id查找对象，
+                var obj=document.getElementById('Note');
+//添加一个选项
+            obj.options.add(new Option(age,age)); //这个兼容IE与firefox
+        }
+
+    </script>
+   </head>
+<body>
+
+
+<div   id="tool">
+<table>
+        <tr><td><img src="image/保存_u179.png"></td></tr>
+        <tr><td><img src="image/添加笔记_u185.png"></td></tr>
+        <tr><td> <img src="image/同步_u183.png"></td></tr>
+        <tr><td><img src="image/添加.png" onclick="MoveTool()"></td></tr>
+    <button type="button" class="btn btn-default btn-sm" onclick="CreateNote()">新建笔记</button>
+    <select class="form-control" id="Note">
+        <option>我的笔记</option>
+
+    </select>
+</table>
+
+</div>
+
+
+</body>
+</html>

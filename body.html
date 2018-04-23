@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>云笔记-OFFICE文档随身带</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="css/body.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/head.css" rel="stylesheet" type="text/css"/>
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+      <![endif]-->
+    <script type="text/javascript" src="JS/move.js"></script>
+   <!-- <script language="JavaScript">
+        window.onload= function () {
+            var mSpan=document.getElementById('twt');
+
+            startMove(mSpan,{width:500});
+            alert('2121');
+
+        }
+    </script>-->
+    <script type="text/javascript" src="./JS/move.js"></script>
+    <script language="JavaScript">
+        window.onload=function() {
+
+            var oMove = document.getElementById('tool');
+
+            var aList = oMove.getElementsByTagName('tr');
+
+            for (var i = 0; i < aList.length; i++) {
+                aList[i].onmouseover  = function () {
+
+                    var _this = this.getElementsByTagName('td')[0];
+                    var _this1=this.getElementsByTagName('p');
+                    startMove(_this, {opacity: 20} );
+
+
+                }
+                aList[i].onmouseout= function () {
+
+                    var _this = this.getElementsByTagName('td')[0];
+
+                    startMove(_this, {opacity: 100} );
+
+                }
+            }
+        }
+
+        function CreateNote() {
+
+            var  age = prompt("请输入笔记名称:","");
+            if (age != null){
+            }else{
+                alert("你按了[取消]按钮");
+            }
+//根据id查找对象，
+            var obj=document.getElementById('Note');
+//添加一个选项
+            obj.options.add(new Option(age,age)); //这个兼容IE与firefox
+        }
+    </script>
+</head>
+<body>
+
+<div class="row">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">笔趣阁<i> biquge.com</i></a>
+
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="cative"><a href="head.html">注销</a></li>
+                        <li class="cative"><a href="#">保存本地</a></li>
+                        <li class="cative"><a href="#">添加书签</a></li>
+
+                    </ul>
+                </div>
+                <!--向右对齐-->
+            </div>
+        </div>
+    </nav>
+</div>
+</div>
+
+
+
+
+<div class="container " >
+    <div class="row">
+        <div class="col-xs-1 col-sm-1 tool_div"  >
+        <div class="tool" id="tool">
+            <table>
+                <tr><td><img src="image/保存_u179.png"><p>保存本地</p></td></tr>
+                <tr><td><img src="image/添加笔记_u185.png"><p>添加书签</p></td></tr>
+
+
+            </table>
+
+        </div>
+        </div>
+
+
+
+        <div class="col-xs-11 col-sm-11" id="file" >
+        <div class="file">
+
+
+            <div class="input-group">
+                <input type="text" class="form-control input-sm" id="shoushuo"><span class="input-group-addon btn btn-primary"   onclick="shoushuo()">搜索</span>
+            </div>
+
+            <hr>
+
+            <div style="height: 50px">
+                共有  篇小说
+                <button type="button" class="btn btn-default btn-sm" addeventlistener="CreateNote()" style="float: right">新建分组</button>
+
+                <br>
+                <div class="form-group">
+
+                    <select class="form-control" id="Note">
+                        <option>我的小说</option>
+
+                    </select>
+                       </div>
+                </div>
+
+
+
+            <hr>
+<div class="row">
+    <div class="col-sm-12 col-bg-12 show"  >
+<table class="table1" style="display: none" id="show">
+    <tr><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td></tr>
+    <tr><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td></tr>
+    <tr><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td><td><p class="table_biaoti">sss</p><span class="table_zuozhe">dd</span></td></tr>
+</table>
+
+    </div>
+
+        </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    document.getElementById("file").style.height = document.getElementById("tool").offsetHeight + "px";
+    document.getElementById("editor_body").style.height = document.getElementById("tool").offsetHeight + "px";
+
+    $(function() {
+        $('#editControls a').click(function(e) {
+            switch($(this).data('role')) {
+                case 'h1':
+                case 'h2':
+                case 'p':
+                    document.execCommand('formatBlock', false, '<' + $(this).data('role') + '>');
+                    break;
+                default:
+                    document.execCommand($(this).data('role'), false, null);
+                    break;
+            }
+
+        })
+    });
+    function shoushuo() {
+
+        var show=document.getElementById("show");
+        //alert(document.getElementById("shoushuo").value);
+        if(document.getElementById("shoushuo").value!="") {
+            show.style.display = 'block';
+            var shoushuo1=document.getElementById("shoushuo").value;
+            /* var  a={
+            "name":1,
+            "author":3,
+
+        };
+        for(var x=2;x<20;x++)
+            document.getElementsByTagName("p")[x].innerText="书名"+a.name;
+        document.getElementsByTagName("span")[x].innerText="作者"+a.author;*/
+
+            //alert(1);
+            $.ajax({
+                type: 'post',
+                url: 'ddd.php',
+                contentType: 'application/json;charset=utf-8',
+                data:{"shoushuo": shoushuo1},
+                success: function (data) { //返回json结果
+                    alert(data);
+                    var a = JSON.parse(data);
+                    /*  var  a={
+                    "name":1,
+                    "author":3,
+
+                };*/
+                    for (var x = 2; x < 20; x++)
+                        document.getElementsByTagName("p")[x].innerText = "书名" + a.name;
+                    document.getElementsByTagName("span")[x].innerText = "作者" + a.author;
+                }
+            });
+            var shoushuo = {
+                shoushuo: name
+            }
+        }
+        else{
+
+        }
+    }
+</script>
+
+
+
+
+</body>
+</html>

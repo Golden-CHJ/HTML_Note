@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>云笔记-注册</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet" type="text/css"/>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+<div class="row">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">笔趣阁<i> biquge.com</i></a>
+
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="cative"><a href="head.html">返回</a></li>
+                        <li class="cative"><a href="setup.html">已有账号？去登录</a></li>
+                    </ul>
+                </div>
+                <!--向右对齐-->
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div class="container"  style=" background-image: url('./image/login_.png'); background-repeat: no-repeat ;background-position: center; background-size:contain;">
+    <div class="row" >
+        <div class="col-xs-12 col-sm-12  " >
+            <!--form-->
+               <table style="margin: auto">
+
+                        <tr><td> </td><td ><span style="text-align: center;display: block;font-family :Microsoft JhengHei;font-size: 30px;">账号注册</span></td></tr>
+
+                        <tr><td><span>账 号</span></td><td> <input type="text" class="form-control " placeholder="账号" id="z_username"></td></tr>
+                        <tr><td><span>密 码</span></td><td> <input type="text" class="form-control " placeholder="密码"id="z_password"></td></tr>
+
+               </table>
+
+                <div class="row"style="height: 60px">
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12  " style="text-align: center">
+                        <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"  onclick="zhuche()">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注册&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </button>
+
+
+
+                        <div class="row"style="height: 60px">
+                        </div>
+                     </div>
+                 </div>
+
+
+
+            </div>
+        </div>
+
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        笔趣阁-biquge
+                    </h4>
+                </div>
+                <div class="modal-body" id="hit">
+                    登录成功！现在去阅读你的小说吧！
+                </div>
+                <div class="modal-footer">
+
+                    <a class="btn btn-primary "role="button" href="body.html" id="hit_button">&nbsp;&nbsp; &nbsp;我的笔记 &nbsp; &nbsp;
+                    </a>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script>
+/*
+        $(function () { $('#myModal').modal({
+            keyboard: true
+        })});*/
+    </script>
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js"></script>
+    <script>
+
+
+        function zhuche () {
+            var t_name=document.getElementById("z_username").value;
+            var t_password=document.getElementById("z_password").value;
+            var re=1;
+            $.ajax({
+                type: 'post',
+                url: 'ddd.php',
+                contentType: 'application/json;charset=utf-8',
+                data:{"user_name": t_name, "user_password": t_password},
+                success: function (data) { //返回json结果
+                    alert(data);
+                    re=data;
+                }
+            });
+            if(re=="0"){
+                var s=document.getElementById("hit");
+                s.innerText="注册失败，已有相同用户名";
+                var x=document.getElementById("hit_button");
+                x.href='login.html';
+                x.innerText="Back";
+            }
+        else{
+
+            }
+            /*var x=new XMLHttpRequest();
+            x.open('post','https://blog.zsxsoft.com/w2tmp/post.php',false);
+            x.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            x.send(JSON);'{"name":'+t_name+","+
+                '"age:"'+ t_password +'}'
+*/
+
+        }
+
+
+    </script>
+</div>
+</body>
+</html>

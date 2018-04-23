@@ -1,0 +1,85 @@
+/*.kouhao{
+    font-size: 60px;
+    font-family: "Microsoft JhengHei";
+}
+/* 超小设备（手机，小于 768px） */
+/* Bootstrap 中默认情况下没有媒体查询 */
+
+/* 小型设备（平板电脑，768px 起） */
+@media (min-width:200px) {
+    .kouhao{
+        font-size: 25px;
+        visibility: hidden;
+    }
+    .solo_word{
+        font-size: 0px;
+    }
+    .solo_img{
+        width:80px;height:80px
+    }
+    .and_img{
+        visibility: hidden;
+        float: left;
+    }
+    .and_word{
+        float: left;display:block; text-align: center;
+        font-size:20px;
+        font-family: Microsoft JhengHei;
+    }
+    .gun{
+        display: none;
+    }
+
+}
+
+/* 中型设备（台式电脑，992px 起） */
+@media (min-width: 780px) {
+    .kouhao{
+        font-size: 45px;
+        visibility: visible;
+    }
+    .solo_word{
+        font-size: 25px;
+    }
+    .solo_img{
+        width:70px;height:70px
+    }
+    .and_img{
+            visibility: visible;
+        float: left;
+    }
+    .and_word{
+        float: left;display:block; text-align: center;
+        font-size:30px;
+        font-family: Microsoft JhengHei;margin-left: 10px;
+    }
+    .gun{
+        display: block;
+    }
+}
+
+/* 大型设备（大台式电脑，1200px 起） */
+@media (min-width: 1200px) {
+    .kouhao{
+        font-size: 60px;
+        visibility: visible;
+    }
+    .solo_word{
+        font-size: 45px;
+    }
+    .solo_img{
+        width:60px;height:60px
+    }
+    .and_img{
+        visibility: visible;
+        float: left;
+    }
+    .and_word{
+        float: left;display:block; text-align: center;
+        font-size:30px;
+        font-family: Microsoft JhengHei;margin-left: 10px;
+    }
+    .gun{
+        display:block;
+    }
+}

@@ -1,0 +1,40 @@
+body{
+   background-color: #f8f8f8;
+
+
+}
+.bg{
+    background: url('../image/back2.jpg') center;
+    background-size:100% 100%;
+}
+.head_ span{
+    display: block;
+    float: left;
+    padding-top: 10px;
+   padding-left: 40px;
+    font-size: 18px;
+
+    font-family:  	Microsoft YaHei;
+
+}
+.head_ span p{
+    font-style: italic;
+}
+.col-xs-6,.col-sm-6 span{
+
+    font-size:30px;
+    font-family:"Microsoft JhengHei";
+    float: left;
+}
+.col-xs-5 ,.col-sm-5 span{
+    font-weight: bolder;
+    font-size: 50px;
+    font-family: "Micr8osoft Yi Baiti";
+    text-align: center;
+}
+
+.choose:hover{
+    opacity:0.8;
+    filter:alpha(opacity=80); /* 针对 IE8 以及更早的版本*/
+    text-decoration:underline;
+}

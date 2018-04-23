@@ -1,0 +1,139 @@
+.tool{
+    background-color: #1e88e5;
+}
+.tool img{
+    display: block;
+    float: left;
+    margin-top: 100%;
+    color: black;
+}
+.tool p{
+    float: left;
+    font-size: 8px;
+  color: black;
+    font-family:"Microsoft New Tai Lue";
+}
+.file-col{
+    height: inherit;
+    width: auto;
+
+}
+
+.show{
+
+    text-align: center;
+}
+.table1{
+    text-align: center;
+}
+
+#editor_body{
+
+    border-color:black;
+}
+.span12{
+    background-color: white;
+}
+
+@media (min-width:250px) {
+  .tool_div{
+      display: none;
+
+      background-color: #1e88e5;
+  }
+    .table1 td {
+        border: dashed 2px;
+        margin: 50px 50px 50px 50px;
+        padding: 20px 20px 20px 20px;
+
+    }
+    .table1 th {
+        border: dashed 2px;
+        margin: 50px 50px 50px 50px;
+        padding: 20px 20px 20px 20px;
+    }
+    .table_img{
+
+        display: none;
+    }
+    .table_biaoti{
+        font-family: "Microsoft JhengHei";
+        font-size: 10px;
+        float: left;
+    }
+    .table_zuozhe{
+        font-family: "Microsoft JhengHei";
+        font-size: 10px;
+        float: left;
+    }
+}
+
+/*中型设备（台式电脑，992px 起） */
+@media (min-width: 550px) {
+    .tool_div{
+        display: block;
+        border: dashed;
+        background-color: #1e88e5;
+    }
+    .table1 td {
+        border: dashed 2px;
+        margin: 50px 50px 50px 50px;
+        padding: 50px 50px 50px 50px;
+
+    }
+    .table1 th {
+        border: dashed 2px;
+        margin: 50px 50px 50px 50px;
+        padding: 100px 80px 50px 50px;
+    }
+    .table_img{
+        width: 70px;
+        height: 70px;
+        display: block;
+    }
+    .table_biaoti{
+        font-family: "Microsoft JhengHei";
+        font-size: 20px;
+        float: left;
+    }
+    .table_zuozhe{
+        font-family: "Microsoft JhengHei";
+        font-size: 15px;
+        float: left;
+    }
+}
+
+/*大型设备（大台式电脑，1200px 起） */
+@media (min-width: 1200px) {
+    .tool_div{
+        display: block;
+        border: dashed;
+        background-color: #1e88e5;
+    }
+    .table1 td {
+        border: dashed 2px;
+        margin: 50px 50px 50px 50px;
+        padding: 100px 80px 50px 50px;
+
+    }
+    .table1 th {
+        border: dashed 2px;
+        margin: 50px 50px 50px 50px;
+        padding: 100px 80px 50px 50px;
+    }
+    .table_img{
+        width: 100px;
+        height: 100px;
+        display: block;
+    }
+    .table_biaoti{
+        font-family: "Microsoft JhengHei";
+        font-size: 35px;
+        float: left;
+    }
+    .table_zuozhe{
+        font-family: "Microsoft JhengHei";
+        font-size: 20px;
+        float: left;
+    }
+}

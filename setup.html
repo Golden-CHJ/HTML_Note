@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>云笔记-登录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/setup_.css" rel="stylesheet" type="text/css"/>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+
+<div class="row">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">笔趣阁<i> biquge.com</i></a>
+
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="cative"><a href="head.html">返回</a></li>
+                    </ul>
+                </div>
+                <!--向右对齐-->
+            </div>
+        </div>
+    </nav>
+</div>
+</div>
+
+
+<div class="container"  style=" background-image: url('./image/login_.png'); background-repeat: no-repeat ;background-position: center; background-size:contain;">
+<div class="row" >
+<div class="col-xs-12 col-sm-12  " >
+
+
+            <table   style="margin:auto;">
+            <tr><td colspan="2"><p class="denglu_head">账号登录</p></td></tr>
+            <tr><td><span style="text-align: right">用户名</span></td><td ><div class="input-group " style="margin-left: 60px">
+                <input type="text" class="form-control " placeholder="用户名" id="d_username">
+            </div>
+            </td>
+                <br></tr>
+            <tr><td><span style="text-align: right">密 码</span></td><td><div class="input-group"  style="margin-left: 60px">
+                <input type="password" class="form-control" placeholder="密码"id="d_password">
+            </div></td></tr>
+
+            <tr><td></td><td><div class="checkbox"  style="margin-left: 120px">
+                <label>
+                    <input type="checkbox">记住密码
+                </label>
+            </div></td></tr>
+        </table>
+
+</div>
+            <div class="row denglu_button" >
+                <div class="col-xs-11 col-sm-11 " >
+
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="denglu()">
+                        &nbsp;   &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; 登录  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                    </button>
+
+
+
+
+                    <div class="row"style="height: 60px">
+                    </div>
+                </div>
+            </div>
+</div>
+
+</div>
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    笔趣阁-biquge
+                </h4>
+            </div>
+            <div class="modal-body" id="hit">
+               登录成功！现在去阅读你的小说吧！
+            </div>
+            <div class="modal-footer">
+
+                    <a class="btn btn-primary "role="button" href="body.html" id="hit_button">&nbsp;&nbsp; &nbsp;我的小说 &nbsp; &nbsp;
+                    </a>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+
+    $(function () { $('#myModal').modal({
+        keyboard: true
+    })});
+</script>
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js"></script>
+<script>
+    function denglu  () {
+        var t_name=document.getElementById("d_username").value;
+        var t_password=document.getElementById("d_password").value;
+        var re="1";
+        $.ajax({
+            type: 'post',
+            url: 'ddd.php',
+            contentType: 'application/json;charset=utf-8',
+            data:{"user_name": t_name, "user_password": t_password},
+            success: function (data) { //返回json结果
+                alert(data);
+               re=data;
+            }
+        });
+
+        if(re=="0"){
+            var s=document.getElementById("hit");
+            s.innerText="登陆失败！用户名或者密码错误";
+            var x=document.getElementById("hit_button");
+            x.href='setup.html';
+            x.innerText="Back";
+        }
+        else{
+
+        }
+    }
+
+
+</script>
+</body>
+</html>
